@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/main.css">
 
+    <link rel="stylesheet" href="css/screen.css">
+
     <script type="text/javascript" src="js/jquery-1.8.3.js"></script>
     <script type="text/javascript" src="js/angular.js"></script>
     <script type="text/javascript" src="js/ready.js"></script>
