@@ -5,15 +5,18 @@ var Bond = function Bond( items ){
 		var $tmpItem = $el.find( '.' + itemClass );
 		var realItem = function ( val ){
 			var T = this;
+			var isInput = $tmpItem.is('input');
 //			console.log(val);
+			var setAction = isInput?'val':'html';
+			var getAction = isInput?'val':'text';
 			if( val === undefined ) {
-				var ret = $tmpItem.text();
+				var ret = $tmpItem[getAction]();
 				ret =  isFinite(ret)? parseInt(ret):ret;
 				return ret;
 			} else if( $.isFunction(val) ){
-				$tmpItem.html( val() );
+				$tmpItem[setAction]( val() );
 			} else if (typeof val != 'Object'){
-				$tmpItem.html( val );
+				$tmpItem[setAction]( val );
 			}
 			return this;
 
@@ -35,7 +38,9 @@ var Bond = function Bond( items ){
 				return retObj;
 			} else {
 				for(var i in obj){
+					if( boundItems[i] !== undefined ) {
 					boundItems[i](obj[i]);
+					}
 				}
 			}
 
